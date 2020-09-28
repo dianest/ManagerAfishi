@@ -6,10 +6,10 @@ public class MovieManager {
   private Movie[] items = new Movie[0];
   private int lastMoviesCount = 10;
 
-  public MovieManager(){
+  public MovieManager() {
   }
 
-  public MovieManager(int lastMoviesCount){
+  public MovieManager(int lastMoviesCount) {
     this.lastMoviesCount = lastMoviesCount;
   }
 
@@ -31,17 +31,4 @@ public class MovieManager {
     }
     return result;
   }
-
-  /*public void removeById(int id) {
-    int length = items.length - 1;
-    Movie[] tmp = new Movie[length];
-    int index = 0;
-    for (Movie item : items) {
-      if (item.getId() != id) {
-        tmp[index] = item;
-        index++;
-      }
-    }
-    items = tmp;
-  }*/
 }
