@@ -1,12 +1,11 @@
 package ru.netology.manager;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Movie;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class MovieManagerTestNonEmptyWithSetup {
+public class MovieManagerTest {
   Movie first = new Movie(1, "Бладшот", "боевик", "12.03.20", "https://github.com/netology-code/javaqa-homeworks/blob/master/dependency/pic/afisha.png?raw=true");
   Movie second = new Movie(2, "Вперед", "мультфильм", "05.03.20", "https://github.com/netology-code/javaqa-homeworks/blob/master/dependency/pic/afisha.png?raw=true");
   Movie third = new Movie(3, "Отель Белград", "комедия", "05.03.20", "https://github.com/netology-code/javaqa-homeworks/blob/master/dependency/pic/afisha.png?raw=true");
@@ -21,7 +20,7 @@ public class MovieManagerTestNonEmptyWithSetup {
 
 
   @Test
-  public void addMovie(){
+  public void addMovie() {
     MovieManager manager = new MovieManager();
     manager.add(first);
     manager.add(second);
@@ -31,7 +30,7 @@ public class MovieManagerTestNonEmptyWithSetup {
   }
 
   @Test
-  public void getLastMoviesDefaultCount(){
+  public void getLastMoviesDefaultCount() {
     MovieManager manager = new MovieManager();
     manager.add(first);
     manager.add(second);
@@ -52,7 +51,7 @@ public class MovieManagerTestNonEmptyWithSetup {
   }
 
   @Test
-  public void getLastMoviesCustomCount(){
+  public void getLastMoviesCustomCount() {
     MovieManager manager = new MovieManager(5);
     manager.add(first);
     manager.add(second);
@@ -74,33 +73,10 @@ public class MovieManagerTestNonEmptyWithSetup {
   }
 
   @Test
-  public void getLastMoviesEmpty(){
+  public void getLastMoviesEmpty() {
     MovieManager manager = new MovieManager();
     Movie[] expected = new Movie[0];
     assertArrayEquals(expected, manager.getLastMovies());
   }
 
- /* @Test
-  public void shouldRemoveIfExists() {
-    int idToRemove = 1;
-    manager.removeById(idToRemove);
-
-    Movie[] actual = manager.getAll();
-    Movie[] expected = new Movie[]{third, second};
-
-//    assertEquals(expected, actual);
-    assertArrayEquals(expected, actual);
-  }
-
-  @Test
-  public void shouldNotRemoveIfNotExists() {
-    int idToRemove = 4;
-
-    manager.removeById(idToRemove);
-
-    Movie[] actual = manager.getAll();
-    Movie[] expected = new Movie[]{third, second, first};
-
-    assertArrayEquals(expected, actual);
-  }*/
 }

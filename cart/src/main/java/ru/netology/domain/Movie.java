@@ -14,3 +14,4 @@ public class Movie {
   private String dateOfPremier;
   private String imageUrl;
 }
+
