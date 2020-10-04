@@ -32,7 +32,6 @@ public class CartManagerTestNonEmpty {
   @Test
   public void shouldRemoveIfExists() {
     int idToRemove = 1;
-    // настройка заглушки
     PurchaseItem[] returned = new PurchaseItem[]{second, third};
     doReturn(returned).when(repository).findAll();
     doNothing().when(repository).removeById(idToRemove);
@@ -42,8 +41,6 @@ public class CartManagerTestNonEmpty {
     PurchaseItem[] actual = manager.getAll();
     assertArrayEquals(expected, actual);
 
-    // удостоверяемся, что заглушка была вызвана с нужным значением
-    // но это уже проверка "внутренней" реализации
     verify(repository).removeById(idToRemove);
   }
 
@@ -59,8 +56,6 @@ public class CartManagerTestNonEmpty {
     PurchaseItem[] actual = manager.getAll();
 
     assertArrayEquals(expected, actual);
-    // удостоверяемся, что заглушка была вызвана с нужным значением
-    // но это уже проверка "внутренней" реализации
     verify(repository).removeById(idToRemove);
   }
 }
